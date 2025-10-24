@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Día de Muertos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica:ital@0;1&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --naranja: #FF6B00;
+            --amarillo: #FFC107;
+            --morado: #4A235A;
+            --rosa: #E84393;
+            --rojo: #C0392B;
+            --oscuro: #1A1A2E;
+            --claro: #F8EFBA;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--oscuro), var(--morado));
+            color: var(--claro);
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 15px;
+        }
+
+        /* Fondo animado con flores de cempasúchil */
+        .flores-fondo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .flor {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle, var(--amarillo), var(--naranja));
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            opacity: 0.7;
+            animation: caerFlores 20s linear infinite;
+            filter: drop-shadow(0 0 5px rgba(255, 193, 7, 0.5));
+        }
+
+        .flor::before, .flor::after {
+            content: '';
+            position: absolute;
+            background: var(--naranja);
+            border-radius: 50%;
+        }
+
+        .flor::before {
+            width: 10px;
+            height: 10px;
+            top: -3px;
+            left: 7px;
+        }
+
+        .flor::after {
+            width: 6px;
+            height: 6px;
+            bottom: -2px;
+            left: 9px;
+        }
+
+        @keyframes caerFlores {
+            0% {
+                transform: translateY(-100px) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) scale(0.9);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .titulo-container {
+            display: inline-block;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'IM Fell Double Pica', serif;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            color: var(--amarillo);
+            text-shadow: 2px 2px 0 var(--rojo), 
+                        4px 4px 0 rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+            line-height: 1.2;
+        }
+
+        .calavera-decorativa {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: var(--claro);
+            border-radius: 50%;
+            top: -10px;
+            right: -15px;
+            z-index: 1;
+            animation: latido 2s ease-in-out infinite;
+            opacity: 0.9;
+        }
+
+        .calavera-decorativa::before, .calavera-decorativa::after {
+            content: '';
+            position: absolute;
+            background: var(--oscuro);
+            border-radius: 50%;
+        }
+
+        .calavera-decorativa::before {
+            width: 12px;
+            height: 12px;
+            top: 15px;
+            left: 10px;
+        }
+
+        .calavera-decorativa::after {
+            width: 12px;
+            height: 12px;
+            top: 15px;
+            right: 10px;
+        }
+
+        .sonrisa-decorativa {
+            position: absolute;
+            width: 25px;
+            height: 10px;
+            border-bottom: 3px solid var(--oscuro);
+            border-radius: 0 0 15px 15px;
+            bottom: 12px;
+            left: 12px;
+        }
+
+        @keyframes latido {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .subtitulo {
+            font-size: 1rem;
+            max-width: 100%;
+            margin: 0 auto 20px;
+            color: var(--claro);
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+
+        /* Estadísticas */
+        .estadisticas {
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+            margin: 15px 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .estadistica {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 1px solid var(--naranja);
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .estadistica-numero {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--amarillo);
+            display: block;
+        }
+
+        .estadistica-texto {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* Filtros */
+        .filtros {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            padding: 0 5px;
+        }
+
+        .filtro-btn {
+            background: rgba(255, 193, 7, 0.2);
+            border: 2px solid var(--amarillo);
+            color: var(--claro);
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+            font-size: 0.85rem;
+            flex: 1;
+            min-width: 70px;
+            max-width: 120px;
+        }
+
+        .filtro-btn:hover, .filtro-btn.activo {
+            background: var(--amarillo);
+            color: var(--oscuro);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 193, 7, 0.4);
+        }
+
+        /* Galería - CORREGIDA */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            padding: 0 5px;
+        }
+
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            border: 2px solid var(--naranja);
+            background: var(--oscuro);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: entradaCard 0.6s ease-out forwards;
+        }
+
+        @keyframes entradaCard {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .galeria-item.visible {
+            display: block;
+        }
+
+        .galeria-item.oculto {
+            display: none;
+        }
+
+        .galeria-imagen, .galeria-video {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .galeria-item:hover .galeria-imagen,
+        .galeria-item:hover .galeria-video {
+            transform: scale(1.1);
+        }
+
+        .video-icono {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        .galeria-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(74, 35, 90, 0.95), transparent);
+            padding: 15px 10px 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .galeria-item:hover .galeria-overlay {
+            transform: translateY(0);
+        }
+
+        .galeria-titulo {
+            font-size: 1rem;
+            margin-bottom: 3px;
+            color: var(--amarillo);
+            font-family: 'IM Fell Double Pica', serif;
+            line-height: 1.2;
+        }
+
+        .galeria-artista {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        /* Controles de galería */
+        .controles-galeria {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            background: rgba(255, 107, 0, 0.3);
+            border: 2px solid var(--naranja);
+            color: var(--claro);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex: 1;
+            max-width: 160px;
+        }
+
+        .control-btn:hover {
+            background: var(--naranja);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+        }
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 10px;
+        }
+
+        .modal.activo {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-contenido {
+            background: linear-gradient(135deg, var(--morado), var(--oscuro));
+            border-radius: 15px;
+            max-width: 100%;
+            width: 100%;
+            max-height: 95vh;
+            overflow-y: auto;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--naranja);
+            position: relative;
+        }
+
+        .modal.activo .modal-contenido {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-cerrar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--rojo);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .modal-cerrar:hover {
+            background: var(--naranja);
+            transform: rotate(90deg);
+        }
+
+        .modal-imagen, .modal-video {
+            width: 100%;
+            max-height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .modal-video {
+            background: #000;
+        }
+
+        .modal-info {
+            padding: 20px 15px;
+            color: var(--claro);
+        }
+
+        .modal-titulo {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--amarillo);
+            font-family: 'IM Fell Double Pica', serif;
+            border-bottom: 2px solid var(--naranja);
+            padding-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .modal-artista {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: var(--rosa);
+        }
+
+        .modal-descripcion {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .modal-detalles {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .detalle-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid var(--amarillo);
+        }
+
+        .detalle-titulo {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+
+        .detalle-valor {
+            font-size: 1rem;
+        }
+
+        /* Navegación del modal */
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .modal-prev {
+            left: 10px;
+        }
+
+        .modal-next {
+            right: 10px;
+        }
+
+        /* Decoraciones de esquina */
+        .esquina {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            z-index: -1;
+        }
+
+        .esquina-tl {
+            top: 0;
+            left: 0;
+            border-top: 2px solid var(--naranja);
+            border-left: 2px solid var(--naranja);
+            border-radius: 12px 0 0 0;
+        }
+
+        .esquina-tr {
+            top: 0;
+            right: 0;
+            border-top: 2px solid var(--amarillo);
+            border-right: 2px solid var(--amarillo);
+            border-radius: 0 12px 0 0;
+        }
+
+        .esquina-bl {
+            bottom: 0;
+            left: 0;
+            border-bottom: 2px solid var(--rosa);
+            border-left: 2px solid var(--rosa);
+            border-radius: 0 0 0 12px;
+        }
+
+        .esquina-br {
+            bottom: 0;
+            right: 0;
+            border-bottom: 2px solid var(--rojo);
+            border-right: 2px solid var(--rojo);
+            border-radius: 0 0 12px 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0 15px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-texto {
+            opacity: 0.7;
+            font-size: 0.8rem;
+        }
+
+        /* Mejoras para tablets */
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .galeria {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            .galeria-imagen, .galeria-video {
+                height: 220px;
+            }
+            
+            .modal-contenido {
+                max-width: 90%;
+            }
+            
+            .modal-detalles {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Mejoras para desktop */
+        @media (min-width: 1024px) {
+            .galeria {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .galeria-imagen, .galeria-video {
+                height: 250px;
+            }
+            
+            .modal-contenido {
+                max-width: 800px;
+            }
+            
+            .modal-detalles {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo con flores de cempasúchil animadas -->
+    <div class="flores-fondo" id="floresFondo"></div>
+
+    <div class="container">
+        <header>
+            <div class="titulo-container">
+                <h1>Ofrenda Visual</h1>
+                <div class="calavera-decorativa">
+                    <div class="sonrisa-decorativa"></div>
+                </div>
+            </div>
+            <p class="subtitulo">Una experiencia táctil para honrar la tradición del Día de Muertos</p>
+            
+            <!-- Estadísticas -->
+            <div class="estadisticas">
+                <div class="estadistica">
+                    <span class="estadistica-numero" id="totalObras">12</span>
+                    <span class="estadistica-texto">Obras</span>
+                </div>
+                <div class="estadistica">
+                    <span class="estadistica-numero" id="totalVideos">4</span>
+                    <span class="estadistica-texto">Videos</span>
+                </div>
+                <div class="estadistica">
+                    <span class="estadistica-numero" id="totalImagenes">8</span>
+                    <span class="estadistica-texto">Imágenes</span>
+                </div>
+            </div>
+            
+            <div class="filtros">
+                <button class="filtro-btn activo" data-filtro="todo">Todo</button>
+                <button class="filtro-btn" data-filtro="pintura">Pintura</button>
+                <button class="filtro-btn" data-filtro="fotografia">Foto</button>
+                <button class="filtro-btn" data-filtro="video">Video</button>
+                <button class="filtro-btn" data-filtro="artesania">Arte</button>
+            </div>
+        </header>
+
+        <div class="galeria" id="galeria">
+            <!-- Las cards se generarán dinámicamente con JavaScript -->
+        </div>
+        
+        <!-- Controles de galería -->
+        <div class="controles-galeria">
+            <button class="control-btn" id="cargarMas">Cargar más</button>
+            <button class="control-btn" id="reiniciarGaleria">Reiniciar</button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <button class="modal-nav modal-prev" id="modalPrev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="modal-nav modal-next" id="modalNext">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="modal-contenido">
+            <button class="modal-cerrar" id="modalCerrar">
+                <i class="fas fa-times"></i>
+            </button>
+            <img src="" alt="" class="modal-imagen" id="modalImagen">
+            <video controls class="modal-video" id="modalVideo">
+                <source src="" type="video/mp4">
+            </video>
+            <div class="modal-info">
+                <h2 class="modal-titulo" id="modalTitulo"></h2>
+                <p class="modal-artista" id="modalArtista"></p>
+                <p class="modal-descripcion" id="modalDescripcion"></p>
+                
+                <div class="modal-detalles">
+                    <div class="detalle-item">
+                        <div class="detalle-titulo">Técnica</div>
+                        <div class="detalle-valor" id="modalTecnica"></div>
+                    </div>
+                    <div class="detalle-item">
+                        <div class="detalle-titulo">Año</div>
+                        <div class="detalle-valor" id="modalAnio"></div>
+                    </div>
+                    <div class="detalle-item">
+                        <div class="detalle-titulo">Ubicación</div>
+                        <div class="detalle-valor" id="modalUbicacion"></div>
+                    </div>
+                    <div class="detalle-item">
+                        <div class="detalle-titulo">Significado</div>
+                        <div class="detalle-valor" id="modalSignificado"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="esquina esquina-tl"></div>
+            <div class="esquina esquina-tr"></div>
+            <div class="esquina esquina-bl"></div>
+            <div class="esquina esquina-br"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-texto">Galería Ofrenda Visual - Día de Muertos 2023</p>
+    </footer>
+
+    <script>
+        // Datos de las obras
+        const obras = {
+            1: {
+                titulo: "Catrina Elegante",
+                artista: "Inspirado en Rivera",
+                descripcion: "Reinterpretación moderna del icónico personaje que representa la elegancia ante la muerte en la tradición mexicana.",
+                tecnica: "Óleo sobre lienzo",
+                anio: "2023",
+                ubicacion: "Museo CDMX",
+                significado: "Igualdad ante la muerte",
+                tipo: "imagen",
+                categoria: "pintura",
+                imagen: "https://images.unsplash.com/photo-1544473242-8d93359aaead?w=400&h=300&fit=crop"
+            },
+            2: {
+                titulo: "Fiesta en el Panteón",
+                artista: "Carlos Méndez",
+                descripcion: "Celebración de la vida y memoria en los panteones durante el Día de Muertos.",
+                tecnica: "Videoarte 4K",
+                anio: "2022",
+                ubicacion: "Festival Morelia",
+                significado: "Celebración de la vida",
+                tipo: "video",
+                categoria: "video",
+                video: "Spectre  - Desfile de Día de Muertos _ Prime Video.mp4",
+                imagen: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+            },
+            3: {
+                titulo: "Ofrenda Tradicional",
+                artista: "María González",
+                descripcion: "Documentación de una ofrenda ancestral en comunidad indígena de Oaxaca.",
+                tecnica: "Fotografía analógica",
+                anio: "2021",
+                ubicacion: "Oaxaca",
+                significado: "Puente espiritual",
+                tipo: "imagen",
+                categoria: "fotografia",
+                imagen: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&h=300&fit=crop"
+            },
+            4: {
+                titulo: "Papel Picado",
+                artista: "Familia Hernández",
+                descripcion: "Artesanía familiar con motivos tradicionales del Día de Muertos.",
+                tecnica: "Papel cortado a mano",
+                anio: "2020",
+                ubicacion: "Puebla",
+                significado: "Fragilidad de la vida",
+                tipo: "imagen",
+                categoria: "artesania",
+                imagen: "https://images.unsplash.com/photo-1511895426328-dc8714191300?w=400&h=300&fit=crop"
+            },
+            5: {
+                titulo: "Camino de Cempasúchil",
+                artista: "Ana López",
+                descripcion: "Sendero de cempasúchil guiando a las almas en su regreso anual.",
+                tecnica: "Video time-lapse",
+                anio: "2023",
+                ubicacion: "Guadalajara",
+                significado: "Guía espiritual",
+                tipo: "video",
+                categoria: "video",
+                video: "https://assets.mixkit.co/videos/preview/mixkit-red-rose-flower-close-up-3988-large.mp4",
+                imagen: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop"
+            },
+            6: {
+                titulo: "Calavera Dulce",
+                artista: "Inspirado en Posada",
+                descripcion: "Homenaje a las tradicionales calaveras de azúcar de las ofrendas.",
+                tecnica: "Acuarela y tinta",
+                anio: "2022",
+                ubicacion: "Monterrey",
+                significado: "Aceptación de la muerte",
+                tipo: "imagen",
+                categoria: "pintura",
+                imagen: "https://images.unsplash.com/photo-1531386450450-969f935bd522?w=400&h=300&fit=crop"
+            },
+            7: {
+                titulo: "Velas de Memoria",
+                artista: "Lucía Martínez",
+                descripcion: "Instalación lumínica que representa el camino para las almas.",
+                tecnica: "Instalación con velas",
+                anio: "2021",
+                ubicacion: "San Miguel",
+                significado: "Luz que guía",
+                tipo: "imagen",
+                categoria: "artesania",
+                imagen: "https://images.unsplash.com/photo-1531749668029-2db88e4276c7?w=400&h=300&fit=crop"
+            },
+            8: {
+                titulo: "Danza Ancestral",
+                artista: "Comunidad Purépecha",
+                descripcion: "Documental de la Danza de los Viejitos en festividades.",
+                tecnica: "Documental 4K",
+                anio: "2022",
+                ubicacion: "Michoacán",
+                significado: "Conexión ancestral",
+                tipo: "video",
+                categoria: "video",
+                video: "https://assets.mixkit.co/videos/preview/mixkit-traditional-dancer-at-a-cultural-festival-39819-large.mp4",
+                imagen: "https://images.unsplash.com/photo-1543946208-11d4868e5e57?w=400&h=300&fit=crop"
+            },
+            9: {
+                titulo: "Alebrije Guardián",
+                artista: "Inspirado en Linares",
+                descripcion: "Criatura fantástica que guía a las almas en su viaje.",
+                tecnica: "Cartonería y pintura",
+                anio: "2023",
+                ubicacion: "CDMX",
+                significado: "Guía espiritual",
+                tipo: "imagen",
+                categoria: "artesania",
+                imagen: "https://images.unsplash.com/photo-1562569633-622763b9d641?w=400&h=300&fit=crop"
+            },
+            10: {
+                titulo: "Retrato Familiar",
+                artista: "Sofia Ramírez",
+                descripcion: "Familia mexicana junto a su ofrenda generacional.",
+                tecnica: "Fotografía digital",
+                anio: "2022",
+                ubicacion: "Museo Antropología",
+                significado: "Continuidad familiar",
+                tipo: "imagen",
+                categoria: "fotografia",
+                imagen: "https://images.unsplash.com/photo-1511988617509-a57c8a288659?w=400&h=300&fit=crop"
+            },
+            11: {
+                titulo: "Canto a la Vida",
+                artista: "Coro Comunitario",
+                descripcion: "Cantos tradicionales dedicados a los difuntos.",
+                tecnica: "Video musical",
+                anio: "2021",
+                ubicacion: "Xochimilco",
+                significado: "Celebración vital",
+                tipo: "video",
+                categoria: "video",
+                video: "https://assets.mixkit.co/videos/preview/mixkit-woman-singing-a-traditional-song-39876-large.mp4",
+                imagen: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=300&fit=crop"
+            },
+            12: {
+                titulo: "Mercado Tradicional",
+                artista: "Javier Ortega",
+                descripcion: "Vibrante actividad en mercados de Día de Muertos.",
+                tecnica: "Acrílico sobre madera",
+                anio: "2020",
+                ubicacion: "Guadalajara",
+                significado: "Preparación ritual",
+                tipo: "imagen",
+                categoria: "pintura",
+                imagen: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=300&fit=crop"
+            }
+        };
+
+        // Elementos del DOM
+        const galeria = document.getElementById('galeria');
+        const filtroBtns = document.querySelectorAll('.filtro-btn');
+        const modal = document.getElementById('modal');
+        const modalImagen = document.getElementById('modalImagen');
+        const modalVideo = document.getElementById('modalVideo');
+        const modalTitulo = document.getElementById('modalTitulo');
+        const modalArtista = document.getElementById('modalArtista');
+        const modalDescripcion = document.getElementById('modalDescripcion');
+        const modalTecnica = document.getElementById('modalTecnica');
+        const modalAnio = document.getElementById('modalAnio');
+        const modalUbicacion = document.getElementById('modalUbicacion');
+        const modalSignificado = document.getElementById('modalSignificado');
+        const modalCerrar = document.getElementById('modalCerrar');
+        const modalPrev = document.getElementById('modalPrev');
+        const modalNext = document.getElementById('modalNext');
+        const floresFondo = document.getElementById('floresFondo');
+        const cargarMasBtn = document.getElementById('cargarMas');
+        const reiniciarBtn = document.getElementById('reiniciarGaleria');
+        const totalObras = document.getElementById('totalObras');
+        const totalVideos = document.getElementById('totalVideos');
+        const totalImagenes = document.getElementById('totalImagenes');
+
+        let obraActualId = null;
+        let filtroActual = 'todo';
+        let obrasCargadas = 6;
+
+        // Inicializar la galería
+        function inicializarGaleria() {
+            // Calcular estadísticas
+            const totalObrasCount = Object.keys(obras).length;
+            const totalVideosCount = Object.values(obras).filter(obra => obra.tipo === 'video').length;
+            const totalImagenesCount = totalObrasCount - totalVideosCount;
+            
+            totalObras.textContent = totalObrasCount;
+            totalVideos.textContent = totalVideosCount;
+            totalImagenes.textContent = totalImagenesCount;
+            
+            // Generar elementos de la galería
+            generarGaleria();
+            
+            // Crear flores de fondo
+            crearFlores();
+        }
+
+        // Crear flores de cempasúchil animadas en el fondo
+        function crearFlores() {
+            for (let i = 0; i < 20; i++) {
+                const flor = document.createElement('div');
+                flor.classList.add('flor');
+                
+                // Posición aleatoria
+                const left = Math.random() * 100;
+                const animationDelay = Math.random() * 20;
+                const animationDuration = 15 + Math.random() * 15;
+                
+                flor.style.left = `${left}%`;
+                flor.style.animationDelay = `${animationDelay}s`;
+                flor.style.animationDuration = `${animationDuration}s`;
+                
+                floresFondo.appendChild(flor);
+            }
+        }
+
+        // Generar elementos de la galería - CORREGIDO
+        function generarGaleria() {
+            galeria.innerHTML = '';
+            
+            // Obtener IDs de obras a mostrar
+            const obrasIds = Object.keys(obras).slice(0, obrasCargadas);
+            
+            obrasIds.forEach((id, index) => {
+                const obra = obras[id];
+                const galeriaItem = document.createElement('div');
+                galeriaItem.classList.add('galeria-item', 'visible');
+                galeriaItem.setAttribute('data-id', id);
+                galeriaItem.setAttribute('data-categoria', obra.categoria);
+                
+                // Retraso escalonado para animación
+                galeriaItem.style.animationDelay = `${index * 0.1}s`;
+                
+                // Determinar esquinas decorativas
+                const esquinas = ['tl', 'tr', 'bl', 'br'];
+                const esquina1 = esquinas[Math.floor(Math.random() * esquinas.length)];
+                const esquina2 = esquinas.filter(e => e !== esquina1)[Math.floor(Math.random() * 3)];
+                
+                let contenidoMedia = '';
+                if (obra.tipo === 'imagen') {
+                    contenidoMedia = `<img src="${obra.imagen}" alt="${obra.titulo}" class="galeria-imagen">`;
+                } else if (obra.tipo === 'video') {
+                    contenidoMedia = `
+                        <video class="galeria-video" preload="metadata" poster="${obra.imagen}">
+                            <source src="${obra.video}" type="video/mp4">
+                        </video>
+                        <div class="video-icono">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    `;
+                }
+                
+                galeriaItem.innerHTML = `
+                    ${contenidoMedia}
+                    <div class="galeria-overlay">
+                        <h3 class="galeria-titulo">${obra.titulo}</h3>
+                        <p class="galeria-artista">${obra.artista}</p>
+                    </div>
+                    <div class="esquina esquina-${esquina1}"></div>
+                    <div class="esquina esquina-${esquina2}"></div>
+                `;
+                
+                galeria.appendChild(galeriaItem);
+            });
+            
+            // Re-asignar eventos a los nuevos elementos
+            asignarEventosGaleria();
+        }
+
+        // Asignar eventos a los elementos de la galería
+        function asignarEventosGaleria() {
+            const galeriaItems = document.querySelectorAll('.galeria-item');
+            
+            galeriaItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const obraId = item.getAttribute('data-id');
+                    mostrarObra(obraId);
+                });
+            });
+        }
+
+        // Filtrar galería - CORREGIDO
+        function filtrarGaleria() {
+            const galeriaItems = document.querySelectorAll('.galeria-item');
+            
+            galeriaItems.forEach(item => {
+                const categoria = item.getAttribute('data-categoria');
+                
+                if (filtroActual === 'todo' || filtroActual === categoria) {
+                    item.classList.remove('oculto');
+                    item.classList.add('visible');
+                } else {
+                    item.classList.remove('visible');
+                    item.classList.add('oculto');
+                }
+            });
+        }
+
+        // Mostrar obra en el modal
+        function mostrarObra(id) {
+            const obra = obras[id];
+            
+            // Ocultar todos los medios primero
+            modalImagen.style.display = 'none';
+            modalVideo.style.display = 'none';
+            
+            // Mostrar el medio correspondiente
+            if (obra.tipo === 'imagen') {
+                modalImagen.src = obra.imagen;
+                modalImagen.alt = obra.titulo;
+                modalImagen.style.display = 'block';
+                modalVideo.pause();
+            } else if (obra.tipo === 'video') {
+                modalVideo.innerHTML = `<source src="${obra.video}" type="video/mp4">`;
+                modalVideo.style.display = 'block';
+                // Reproducir automáticamente al abrir el modal
+                setTimeout(() => {
+                    modalVideo.play().catch(e => console.log('Autoplay prevented:', e));
+                }, 500);
+            }
+            
+            modalTitulo.textContent = obra.titulo;
+            modalArtista.textContent = obra.artista;
+            modalDescripcion.textContent = obra.descripcion;
+            modalTecnica.textContent = obra.tecnica;
+            modalAnio.textContent = obra.anio;
+            modalUbicacion.textContent = obra.ubicacion;
+            modalSignificado.textContent = obra.significado;
+            
+            obraActualId = parseInt(id);
+            modal.classList.add('activo');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Navegar entre obras en el modal
+        function navegarObras(direccion) {
+            const obrasIds = Object.keys(obras).map(Number);
+            let indiceActual = obrasIds.indexOf(obraActualId);
+            let nuevoIndice = indiceActual + direccion;
+            
+            // Navegación circular
+            if (nuevoIndice < 0) nuevoIndice = obrasIds.length - 1;
+            if (nuevoIndice >= obrasIds.length) nuevoIndice = 0;
+            
+            // Si hay filtro aplicado, navegar solo entre obras visibles
+            if (filtroActual !== 'todo') {
+                const obrasFiltradas = Array.from(document.querySelectorAll('.galeria-item.visible'))
+                    .map(item => parseInt(item.getAttribute('data-id')));
+                
+                if (obrasFiltradas.length > 0) {
+                    const indiceFiltrado = obrasFiltradas.indexOf(obraActualId);
+                    let nuevoIndiceFiltrado = indiceFiltrado + direccion;
+                    
+                    // Navegación circular en obras filtradas
+                    if (nuevoIndiceFiltrado < 0) nuevoIndiceFiltrado = obrasFiltradas.length - 1;
+                    if (nuevoIndiceFiltrado >= obrasFiltradas.length) nuevoIndiceFiltrado = 0;
+                    
+                    mostrarObra(obrasFiltradas[nuevoIndiceFiltrado]);
+                    return;
+                }
+            }
+            
+            mostrarObra(obrasIds[nuevoIndice]);
+        }
+
+        // Cargar más obras
+        function cargarMasObras() {
+            const totalObrasCount = Object.keys(obras).length;
+            
+            if (obrasCargadas < totalObrasCount) {
+                obrasCargadas = Math.min(obrasCargadas + 3, totalObrasCount);
+                generarGaleria();
+                
+                // Si hemos cargado todas, ocultar el botón
+                if (obrasCargadas >= totalObrasCount) {
+                    cargarMasBtn.style.display = 'none';
+                }
+            }
+        }
+
+        // Reiniciar galería
+        function reiniciarGaleria() {
+            obrasCargadas = 6;
+            cargarMasBtn.style.display = 'block';
+            filtroActual = 'todo';
+            
+            // Restablecer botones de filtro
+            filtroBtns.forEach(btn => {
+                btn.classList.remove('activo');
+                if (btn.getAttribute('data-filtro') === 'todo') {
+                    btn.classList.add('activo');
+                }
+            });
+            
+            generarGaleria();
+            
+            // Scroll suave al inicio
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Cerrar modal
+        function cerrarModal() {
+            modal.classList.remove('activo');
+            document.body.style.overflow = 'auto';
+            
+            // Pausar video al cerrar el modal
+            if (modalVideo.style.display === 'block') {
+                modalVideo.pause();
+            }
+        }
+
+        // Asignar eventos
+        function asignarEventos() {
+            // Filtros
+            filtroBtns.forEach(boton => {
+                boton.addEventListener('click', () => {
+                    const filtro = boton.getAttribute('data-filtro');
+                    
+                    // Actualizar botones activos
+                    filtroBtns.forEach(btn => btn.classList.remove('activo'));
+                    boton.classList.add('activo');
+                    
+                    // Aplicar filtro
+                    filtroActual = filtro;
+                    filtrarGaleria();
+                });
+            });
+
+            // Navegación del modal
+            modalPrev.addEventListener('click', () => navegarObras(-1));
+            modalNext.addEventListener('click', () => navegarObras(1));
+
+            // Cerrar modal
+            modalCerrar.addEventListener('click', cerrarModal);
+
+            // Cerrar modal al hacer clic fuera
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    cerrarModal();
+                }
+            });
+
+            // Cerrar modal con tecla Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('activo')) {
+                    cerrarModal();
+                }
+                
+                // Navegación con teclado
+                if (modal.classList.contains('activo')) {
+                    if (e.key === 'ArrowLeft') {
+                        navegarObras(-1);
+                    } else if (e.key === 'ArrowRight') {
+                        navegarObras(1);
+                    }
+                }
+            });
+
+            // Controles de galería
+            cargarMasBtn.addEventListener('click', cargarMasObras);
+            reiniciarBtn.addEventListener('click', reiniciarGaleria);
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            inicializarGaleria();
+            asignarEventos();
+        });
+    </script>
+</body>
+</html>

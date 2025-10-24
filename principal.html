@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina - Principal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/styles/style_principal.css">
+</head>
+<body>
+    
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-skull"></i>
+                Ofrenda Prehispánica 
+            </a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero">Inicio</a></li>
+                <li><a href="#mictlan">Historia</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#ofrenda">Ofrenda</a></li>
+                <li><a href="#galeria">Galería</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="video-background">
+            <video autoplay muted loop>
+                <source src="assets/vid/Principal/back_inicio.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento video.
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="floating">Ofrenda Prehispánica</h1>
+                <p>El origen mesoamericano del Día de Muertos y su conexión con el más allá.</p>
+                <a href="#mictlan" class="btn pulse">Explorar Más</a>
+            </div>
+        </div>
+        
+        <div class="particle" style="top: 20%; left: 10%; width: 10px; height: 10px; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 70%; left: 80%; width: 15px; height: 15px; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 40%; left: 90%; width: 8px; height: 8px; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 80%; left: 20%; width: 12px; height: 12px; animation-delay: 3s;"></div>
+    </section>
+
+    <section id="mictlan">
+        <div class="container">
+            <div class="section-header">
+                <h2>La historia del Día de Muertos</h2>
+                <p>Antes de los españoles</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="info-card fade-in">
+                    <h3>Día de Muertos prehispánico</h3>
+                    <p>El Día de Muertos prehispánico era una celebración de origen mesoamericano que honraba a los antepasados fallecidos, 
+                        considerándola un viaje natural del alma. 
+                        En estas culturas, se creía que los difuntos debían cruzar el inframundo (Mictlán en la cultura mexica, Xibalbá en la maya)
+                        y se les organizaban ofrendas de comida y bebida para guiarlos en su camino y ayudarlos a alcanzar el descanso eterno.</p>
+                    <p>Para que las almas pudieran atravesar el Mictlán, era necesario que su cuerpo hubiera sido cuidado y respetado durante el entierro.</p>
+                    
+                </div>
+                
+                <div class="info-card fade-in">
+                    <h3>El Xoloitzcuintle</h3>
+                    <p>El xoloitzcuintle en el altar de muertos significa guía espiritual y guardián de las almas, 
+                    ya que en la mitología prehispánica se creía que estos perros ayudaban a los difuntos a cruzar el difícil camino al inframundo, el Mictlán. 
+                    Su presencia en la ofrenda representa su rol de acompañar y guiar el alma de los fallecidos hacia el descanso eterno. </p>
+                    <p>Se creía que los nueve niveles del Mictlán eran el lugar donde los huesos de los muertos eran recogidos por los dioses de la muerte.</p>
+                    
+                </div>
+    </section>
+
+    <section id="destinos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Destinos del Alma</h2>
+                <p>En la cosmovisión mexica, el destino después de la muerte dependía de la forma de fallecer</p>
+            </div>
+            
+            <div class="destinos-container">
+                <div class="destino-item fade-in">
+                    <div class="destino-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="destino-content">
+                        <h3>Mictlán</h3>
+                        <p>Destino de quienes morían por causas naturales o "comunes". Era un lugar oscuro y frío al que las almas debían viajar durante cuatro años, guiadas por un perro, superando varias dificultades en los nueve niveles.</p>
+                        <div class="card-buttons">
+                            <a href="PG_Mictlan.html" class="btn btn-small">Explorar Mictlán</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destino-item fade-in">
+                    <div class="destino-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="destino-content">
+                        <h3>Tlalocan</h3>
+                        <p>El paraíso terrenal de Tláloc, para quienes morían por causas relacionadas con el agua como ahogamiento, por un rayo, o por enfermedades como la hidropesía o la lepra. Era un lugar de abundancia constante con flores, plantas y ríos.</p>
+                        <div class="card-buttons">
+                            <a href="PG_Tlalocan.html" class="btn btn-small">Conocer Tlalocan</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destino-item fade-in">
+                    <div class="destino-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="destino-content">
+                        <h3>Cihuatlampa (Casa del Sol)</h3>
+                        <p>Destino para los guerreros que morían en combate y las mujeres que morían en el parto. Era un privilegio porque acompañaban al sol en su recorrido.</p>
+                        <div class="card-buttons">
+                            <a href="PG_Cihuatlampa.html" class="btn btn-small">Viajar al Sol</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destino-item fade-in">
+                    <div class="destino-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="destino-content">
+                        <h3>Chichihualcuauhco</h3>
+                        <p>El lugar para los niños que morían antes de cumplir siete años. Se creía que estos pequeños continuaban viviendo en un espacio especial donde eran cuidados y alimentados por un árbol nodriza.</p>
+                        <div class="card-buttons">
+                            <a href="PG_Chichihualcuauhco.html" class="btn btn-small">Ver Paraíso Infantil</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destino-item fade-in">
+                    <div class="destino-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="destino-content">
+                        <h3>Omeyocan</h3>
+                        <p>No era un destino de muerte, sino el lugar de origen de la vida, pero también se dice que iba la gente que moría a causa del combate o el sacrificio. Era la morada de Ometéotl, la dualidad creadora.</p>
+                        <div class="card-buttons">
+                            <a href="PG_Omeyocan.html" class="btn btn-small">Origen de la Vida</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ofrenda">
+        <div class="container">
+            <div class="section-header">
+                <h2>La Ofrenda Prehispánica</h2>
+                <p>Elementos esenciales para honrar a los difuntos y ayudarlos en su viaje al Mictlán</p>
+            </div>
+            
+            <div class="ofrenda-grid">
+                <div class="ofrenda-item fade-in">
+                    <div class="ofrenda-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h4>Copal e Incienso</h4>
+                    <p>Para purificar el ambiente y guiar a las almas con su aroma hacia la ofrenda.</p>
+                </div>
+                
+                <div class="ofrenda-item fade-in">
+                    <div class="ofrenda-icon">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <h4>Cempasúchil</h4>
+                    <p>Sus pétalos se usaban para marcar el camino que las almas debían seguir.</p>
+                </div>
+                
+                <div class="ofrenda-item fade-in">
+                    <div class="ofrenda-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h4>Alimentos</h4>
+                    <p>Se ofrecía a los difuntos para fortalecerlos en su viaje al inframundo.</p>
+                </div>
+                
+                <div class="ofrenda-item fade-in">
+                    <div class="ofrenda-icon">
+                        <i class="fas fa-dog"></i>
+                    </div>
+                    <h4>Xoloitzcuintle</h4>
+                    <p>Figuras que representaban al guía que ayudaría a las almas a cruzar el río del Mictlán.</p>
+                </div>
+                
+                <div class="ofrenda-item fade-in">
+                    <div class="ofrenda-icon">
+                        <i class="fa-solid fa-menorah"></i>
+                    </div>
+                    <h4>Velas</h4>
+                    <p>Su luz guiaba a las almas en la oscuridad del inframundo.</p>
+                </div>
+                
+                <div class="ofrenda-item fade-in">
+                    <div class="ofrenda-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h4>Agua</h4>
+                    <p>Para calmar la sed de las almas después del largo viaje.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <div class="container">
+            <div class="section-header">
+                <h2>Galería</h2>
+                <p>Imágenes que representan la riqueza cultural de la tradición</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://i.pinimg.com/736x/b5/e3/a0/b5e3a0b08cda3eb7c0b45db511f7ebeb.jpg" alt="Ofrenda tradicional">
+                    <div class="gallery-overlay">
+                        <h4>Ofrenda Tradicional</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://www.mexicodesconocido.com.mx/sites/default/files/styles/adaptive/public/fichas-destino/calaveritas-de-azucar-tres.jpg" alt="Calaveras de azúcar">
+                    <div class="gallery-overlay">
+                        <h4>Calaveras de Azúcar</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://cdn-3.expansion.mx/dims4/default/cf810fc/2147483647/strip/true/crop/1280x854+0+0/resize/1800x1201!/format/webp/quality/80/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fa0%2Fa7%2Fef41326b4554904fcf54c8331e6e%2Fflor-de-cempasuchil.jpeg" alt="Flores de cempasúchil">
+                    <div class="gallery-overlay">
+                        <h4>Flores de Cempasúchil</h4>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <img src="https://www.caminoreal.com/storage/app/media/Blog/los-elementos-de-un-altar-de-muertos.jpg" alt="Altar de muertos">
+                    <div class="gallery-overlay">
+                        <h4>Altar de Muertos</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Ofrenda Prehispánica</h3>
+                    <p>Explorando las raíces ancestrales del Día de Muertos en la cultura mexica y su significado en la cosmovisión prehispánica.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/miguelangel.martinezdominguez.560?locale=es_LA"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/tenshiyaroqq/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/mrbxby"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#mictlan">Historia</a></li>
+                        <li><a href="#destinos">Destinos</a></li>
+                        <li><a href="#ofrenda">Ofrenda</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> ofrendatese5103sistemas@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Tecnológico S/N, Valle de Anahuac, 55210 Ecatepec de Morelos, Méx.</li>
+                        <li><i class="fas fa-circle-user"></i> Miguel Angel Martinez Dominguez @Tenshi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="bienvenida.html" class="btn-flotante" title="Regresar"><i class="fas fa-arrow-left"></i></a>
+
+            
+            <div class="copyright">
+                <p>&copy; 2025 Tecnológico de Estudios Superiores de Ecatepec - 5103 Ingeniería en Sistemas Computacionales</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        const links = document.querySelectorAll('.nav-links a');
+        links.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -100px 0px"
+        };
+        
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('appear');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+        
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+
+        function createParticles() {
+            const heroSection = document.getElementById('hero');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 10 + 5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDelay = `${delay}s`;
+                
+                const colors = ['#FF6B00', '#FF9900', '#FFCC00', '#E6B800'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = randomColor;
+                
+                heroSection.appendChild(particle);
+            }
+        }
+
+        function createMarigoldFall() {
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const marigoldCount = 5;
+                
+                for (let i = 0; i < marigoldCount; i++) {
+                    const marigold = document.createElement('div');
+                    marigold.classList.add('marigold');
+                    
+                    const size = Math.random() * 20 + 10;
+                    const posX = Math.random() * 100;
+                    const duration = Math.random() * 10 + 10;
+                    const delay = Math.random() * 5;
+                    
+                    marigold.style.width = `${size}px`;
+                    marigold.style.height = `${size}px`;
+                    marigold.style.left = `${posX}%`;
+                    marigold.style.animation = `marigoldFall ${duration}s linear ${delay}s infinite`;
+                    
+                    section.appendChild(marigold);
+                }
+            });
+        }
+        
+        window.addEventListener('load', function() {
+            createParticles();
+            createMarigoldFall();
+        });
+
+        const heroTitle = document.querySelector('.hero-content h1');
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        function typeWriter() {
+            if (i < originalText.length) {
+                heroTitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        
+        setTimeout(typeWriter, 1000);
+    </script>
+</body>
+</html>

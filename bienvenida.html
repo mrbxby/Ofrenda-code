@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina - Bienvenida</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/style_bienvenida.css">
+</head>
+<body>
+    <div class="gold-dust"></div>
+    
+    <div class="floral-frame">
+        <div class="floral-corner corner-tl"></div>
+        <div class="floral-corner corner-tr"></div>
+        <div class="floral-corner corner-bl"></div>
+        <div class="floral-corner corner-br"></div>
+    </div>
+    
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fa-solid fa-ghost"></i>
+            </div>
+        </div>
+        
+        <h1>Día de Muertos</h1>
+        
+        <p class="subtitle">Donde la vida y la muerte se encuentran en una danza eterna de colores, aromas y recuerdos</p>
+        
+        <button class="btn" onclick="iniciarViaje()">
+            <i class="fas fa-door-open"></i> Descubrir la Tradición
+        </button>
+    </div>
+    
+    <div class="candle candle-left"></div>
+    <div class="candle candle-right"></div>
+    
+    <div class="marigold-decoration marigold-1"></div>
+    <div class="marigold-decoration marigold-2"></div>
+    <div class="marigold-decoration marigold-3"></div>
+    <div class="marigold-decoration marigold-4"></div>
+    
+    <div class="footer">
+        <p>Una Celebración de Vida • Tradición Mexicana • Honrando a Nuestros Antepasados</p>
+    </div>
+
+    <div class="page-transition" id="pageTransition"></div>
+
+    <script>
+        function iniciarViaje() {
+            const btn = document.querySelector('.btn');
+            const transition = document.getElementById('pageTransition');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Explorando...';
+            btn.disabled = true;
+                        
+            setTimeout(() => {
+                transition.style.transition = 'transform 1s cubic-bezier(0.65, 0, 0.35, 1)';
+                transition.style.transform = 'scale(2)';
+                
+                
+                setTimeout(() => {
+                    
+                    window.location.href = 'principal.html';
+                }, 800);
+            }, 500);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const subtitle = document.querySelector('.subtitle');
+            const text = subtitle.textContent;
+            subtitle.textContent = '';
+            
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    subtitle.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+            
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+</body>
+</html>
